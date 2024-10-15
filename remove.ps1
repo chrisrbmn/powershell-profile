@@ -46,13 +46,13 @@ try {
     $backuppowershellFile = "$HOME\oldprofile.ps1"
     if (Test-Path -Path $backuppowershellFile) {
         Remove-Item -Path $backuppowershellFile -Recurse -Force
-        Write-Host "File '$backuppowershellFile' existed and has been deleted."
+        Write-Host "Backup File '$backuppowershellFile' existed and has been deleted."
     } else {
-        Write-Host "File '$backuppowershellFile' does not exist."
+        Write-Host "Backup File '$backuppowershellFile' does not exist."
     }
 }
 catch {
-    Write-Error "Failed to remove '$backuppowershellFile' or not present. Error: $_"
+    Write-Error "Failed to remove backup file '$backuppowershellFile' or file is not present. Error: $_"
 }
 
 	
