@@ -48,3 +48,11 @@ PS> oh-my-posh font install
 After the profile is installed and active, run the `Edit-Profile` function to create a separate profile file for your current user. Make any changes and customizations in this new file named `profile.ps1`.
 
 Now, enjoy your enhanced and stylish PowerShell experience! 🚀
+
+## 😢 Need to UnInstall? (Elevated PowerShell Recommended)
+
+Execute the following command in an elevated PowerShell window to remove the PowerShell profile:
+
+```
+irm "https://github.com/chrisrbmn/powershell-profile/raw/main/remove.ps1" | iex
+```
