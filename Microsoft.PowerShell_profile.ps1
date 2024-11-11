@@ -164,31 +164,31 @@ function unzip ($file) {
     $fullFile = Get-ChildItem -Path $pwd -Filter $file | ForEach-Object { $_.FullName }
     Expand-Archive -Path $fullFile -DestinationPath $pwd
 }
-function hb {
-    if ($args.Length -eq 0) {
-        Write-Error "No file path specified."
-        return
-    }
-    
-    $FilePath = $args[0]
-    
-    if (Test-Path $FilePath) {
-        $Content = Get-Content $FilePath -Raw
-    } else {
-        Write-Error "File path does not exist."
-        return
-    }
-    
-    $uri = "https://bin.chrisbmn.com/documents"
-    try {
-        $response = Invoke-RestMethod -Uri $uri -Method Post -Body $Content -ErrorAction Stop
-        $hasteKey = $response.key
-        $url = "https://bin.chrisbmn.com/$hasteKey"
-        Write-Output $url
-    } catch {
-        Write-Error "Failed to upload the document. Error: $_"
-    }
-}
+#function hb {
+#    if ($args.Length -eq 0) {
+#        Write-Error "No file path specified."
+#        return
+#    }
+#    
+#    $FilePath = $args[0]
+#    
+#    if (Test-Path $FilePath) {
+#        $Content = Get-Content $FilePath -Raw
+#    } else {
+#        Write-Error "File path does not exist."
+#        return
+#    }
+#    
+#    $uri = "https://bin.chrisbmn.com/documents"
+#    try {
+#        $response = Invoke-RestMethod -Uri $uri -Method Post -Body $Content -ErrorAction Stop
+#        $hasteKey = $response.key
+#        $url = "https://bin.chrisbmn.com/$hasteKey"
+#        Write-Output $url
+#    } catch {
+#        Write-Error "Failed to upload the document. Error: $_"
+#    }
+#}
 function grep($regex, $dir) {
     if ( $dir ) {
         Get-ChildItem $dir | select-string $regex
